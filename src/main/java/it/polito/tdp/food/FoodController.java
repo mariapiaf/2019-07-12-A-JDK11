@@ -89,7 +89,28 @@ public class FoodController {
     @FXML
     void doSimula(ActionEvent event) {
     	txtResult.clear();
-    	txtResult.appendText("Simulazione...");
+    	txtResult.appendText("Simulazione... \n");
+    	String sk = txtK.getText();
+    	int k = 0;
+    	Food selezionato = boxFood.getValue();
+    	try {
+    		k = Integer.parseInt(sk);
+    	} catch(NumberFormatException n) {
+    		txtResult.appendText("Devi inserire un numero intero compreso tra 1 e 10");
+    		return;
+    	}
+    	
+    	if(k<1 || k >10) {
+    		txtResult.appendText("Devi inserire un numero intero compreso tra 1 e 10");
+    		return;
+    	}
+    	if(selezionato == null) {
+    		txtResult.appendText("Devi scegliere un cibo");
+    		return;
+    	}
+    	
+    	
+    	
     }
 
     @FXML // This method is called by the FXMLLoader when initialization is complete
